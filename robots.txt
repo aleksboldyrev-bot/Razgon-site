@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://razgon.app/sitemap.xml
