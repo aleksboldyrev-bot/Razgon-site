@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razgon — Train by your body's real numbers</title>
+  <meta name="description" content="Razgon is a fitness, nutrition, and recovery app built by a sports medicine PA-C. Readiness scores from your real sleep and HRV, effortless macro tracking, and smart workout logging — all local-first on your iPhone.">
+  <meta property="og:title" content="Razgon — Train by your body's real numbers">
+  <meta property="og:description" content="Readiness, macros, and training in one app — built by a sports medicine PA-C.">
+  <meta property="og:url" content="https://razgon.app">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <style>
+    :root {
+      --bg: #0F0F0F; --surface: #1C1C1E; --border: #2C2C2E;
+      --text: #F2F2F7; --muted: #8E8E93;
+      --accent: #22BFE6; --accent-dim: #0E3240; --green: #30D158;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 28px 0; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: 2px; }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: 14px; }
+    nav a:hover { color: var(--text); }
+
+    .hero { display: flex; align-items: center; gap: 48px; padding: 48px 0 72px; flex-wrap: wrap; }
+    .hero-text { flex: 1 1 420px; }
+    h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.12; font-weight: 800; letter-spacing: -1px; margin-bottom: 18px; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .sub { font-size: 18px; color: var(--muted); margin-bottom: 14px; max-width: 46ch; }
+    .cred {
+      display: inline-block; font-size: 13px; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid var(--accent);
+      border-radius: 999px; padding: 6px 14px; margin-bottom: 26px; font-weight: 600;
+    }
+    .cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 16px;
+      padding: 14px 26px; border-radius: 14px; transition: transform .15s ease, opacity .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: .92; }
+    .btn-primary { background: var(--accent); color: #04222b; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+    .hero-shot { flex: 0 1 300px; margin: 0 auto; }
+    .hero-shot img {
+      width: 100%; max-width: 300px; border-radius: 34px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(34, 191, 230, .14), 0 6px 24px rgba(0,0,0,.5);
+      display: block;
+    }
+
+    .features { padding: 24px 0 60px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 24px;
+    }
+    .card .icon { font-size: 26px; margin-bottom: 10px; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .card p { font-size: 14px; color: var(--muted); }
+
+    .coach {
+      margin: 30px 0 70px; background: linear-gradient(135deg, var(--accent-dim), var(--surface));
+      border: 1px solid var(--accent); border-radius: 22px; padding: 40px 32px; text-align: center;
+    }
+    .coach .brain { font-size: 44px; display: block; margin-bottom: 10px; animation: breathe 2.4s ease-in-out infinite alternate; }
+    @keyframes breathe { from { opacity: .55; transform: scale(1); } to { opacity: 1; transform: scale(1.07); } }
+    .coach h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .coach .tag { color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 2px; }
+    .coach p { color: var(--muted); max-width: 60ch; margin: 10px auto 22px; font-size: 15px; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0 46px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted); margin-right: 18px; text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">R<span>A</span>ZGON</div>
+      <nav>
+        <a href="#coach">AI Coach</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Train by your body's <em>real numbers</em>.</h1>
+        <p class="sub">Razgon reads your sleep, HRV, and activity to tell you how hard to train today — and makes logging meals and workouts nearly effortless. Local-first, on your iPhone.</p>
+        <div class="cred">🩺 Built by an orthopedic &amp; sports medicine PA-C</div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://apps.apple.com/app/id6762338551">Download on the App&nbsp;Store</a>
+          <a class="btn btn-ghost" href="#coach">What's next →</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="assets/home-screen.png" alt="Razgon home screen showing readiness score, sleep stages, nutrition and activity">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="features-grid">
+        <div class="card">
+          <div class="icon">🛌</div>
+          <h3>Readiness that means something</h3>
+          <p>A daily 0–100 score from your real sleep stages, HRV, and resting heart rate — with plain-language training guidance, calibrated to your own baseline.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🍽️</div>
+          <h3>Macros without the grind</h3>
+          <p>Barcode scanning, USDA food search, and dynamic calorie targets that follow your actual daily burn — not a number you set in January.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏋️</div>
+          <h3>Training log that thinks</h3>
+          <p>Per-set weights, reps, and reps-in-reserve. Pull your last session forward, search your history, and watch progression build.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3>Yours, on your phone</h3>
+          <p>Local-first storage. No account required. Your health data stays in Apple Health, where it belongs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach" id="coach">
+      <span class="brain">🧠</span>
+      <div class="tag">COMING SOON</div>
+      <h2>Pocket Coach — an AI coach that actually knows you</h2>
+      <p>Talk to it at the gym. Snap a photo of your plate. It reads your readiness, your training history, and your macros — then coaches, logs, and remembers. In private testing now.</p>
+      <a class="btn btn-primary" href="mailto:hello@razgon.app?subject=Notify%20me%20about%20Pocket%20Coach&body=Let%20me%20know%20when%20the%20AI%20coach%20launches!">Get notified at launch</a>
+    </section>
+
+    <footer>
+      <div>© 2026 Razgon. All rights reserved.</div>
+      <div>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://apps.apple.com/app/id6762338551">App Store</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
